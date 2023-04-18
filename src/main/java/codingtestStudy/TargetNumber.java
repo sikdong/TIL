@@ -1,4 +1,4 @@
-package codingtestStudy.dfs;
+package codingtestStudy;
 
 public class TargetNumber {
     int count = 0;

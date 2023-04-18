@@ -1,4 +1,4 @@
-package codingtestStudy.dfs;
+package codingtestStudy;
 
 import java.util.Arrays;
 
