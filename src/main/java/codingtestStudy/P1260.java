@@ -44,6 +44,7 @@ public class P1260 {
     }
 
     static void dfs(int now){
+        //dfs 는 재귀함수
         System.out.print(now + " ");
         visited[now] = true;
         for(int i : graph[now]){
@@ -54,6 +55,7 @@ public class P1260 {
     }
 
     static void bfs(int now){
+        //큐를 메소드 안에서 생성 후 while문으로 할것
         Queue<Integer> q = new LinkedList<>();
         q.add(now);
         visited[now] =  true;
