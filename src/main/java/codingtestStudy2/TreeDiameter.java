@@ -3,10 +3,7 @@ package codingtestStudy2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class TreeDiameter {
     static int[] distance;
@@ -34,6 +31,21 @@ public class TreeDiameter {
         }
         distance = new int[node+1];
         visited = new boolean[node+1];
+        bfs(1);
+        int temp = 0;
+        int maxNode =0;
+        for(int i = 1; i < distance.length; i++){
+            if(distance[i] > temp){
+                temp = distance[i];
+                maxNode = i;
+            }
+        }
+        distance = new int[node+1];
+        visited = new boolean[node+1];
+        bfs(maxNode);
+        Arrays.sort(distance);
+        System.out.println(distance[node]);
+
     }
     static void bfs(int index){
         Queue<Integer> q = new LinkedList<Integer>();
@@ -41,8 +53,10 @@ public class TreeDiameter {
         q.add(index);
         while(!q.isEmpty()){
             int nowNode = q.poll();
+            System.out.println(nowNode);
             for(Edge i : nodeList[nowNode]){
                 int e = i.e;
+                System.out.println(e);
                 int v = i.value;
                 if(!visited[e]){
                     visited[e] = true;
@@ -57,7 +71,7 @@ class Edge{
     int e;
     int value;
     public Edge(int e, int value){
-        e = this.e;
-        value = this.value;
+       this.e = e;
+       this.value = value;
     }
 }
